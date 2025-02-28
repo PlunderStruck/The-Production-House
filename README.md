@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/0829601d-bde1-4a3e-8ec3-61ba7fd9d1e1)
 # The-Production-House
 
 This minimal, unique website was my first freelance gig. My client had an idea for a portfolio, and wanted to see what it looked like in action. This website is not yet online, however feel free to clone and run it locally.
