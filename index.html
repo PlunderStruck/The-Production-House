@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="styles.css">
+  <title>The Production House</title>
+</head>
+
+<body>
+  <button id="audio-control" aria-label="Mute/Unmute">
+    <span id="audio-icon">🔇</span>
+  </button>
+  <audio id="background-music" src="/assets/forest-ambiance-light-wind-birds-screeching-trees-158554.mp3" loop></audio>
+  <div class="body-container">
+    <div id="typing-container"></div>
+    <div class="interactions">
+      <div class="house" id="house">
+        <svg id="house-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Roof -->
+          <polygon points="100,20 180,80 20,80" fill="#212427" stroke="#212427" stroke-width="1" />
+          <!-- House Base -->
+          <rect x="40" y="80" width="120" height="100" fill="#212427" stroke="#212427" stroke-width="1" />
+          <!-- Door -->
+          <rect id="door" x="90" y="130" width="20" height="50" fill="#f0f0f0" stroke="#212427" stroke-width="0.5" />
+          <!-- Left Window -->
+          <rect id="left-window" x="55" y="100" width="20" height="20" fill="#f0f0f0" stroke="#212427"
+            stroke-width="0.5" />
+          <!-- Right Window -->
+          <rect id="right-window" x="125" y="100" width="20" height="20" fill="#f0f0f0" stroke="#212427"
+            stroke-width="0.5" />
+          <!-- Chimney -->
+          <rect id="chimney" x="140" y="40" width="10" height="30" fill="#212427" stroke="#212427" stroke-width="1" />
+          <!-- Smoke Group -->
+          <g id="smoke">
+            <!-- Smoke Puff 1 -->
+            <circle class="smoke-puff puff1" cx="145" cy="40" r="5" fill="rgba(200, 200, 200, 0.6)" />
+            <!-- Smoke Puff 2 -->
+            <circle class="smoke-puff puff2" cx="140" cy="40" r="5" fill="rgba(200, 200, 200, 0.6)" />
+            <!-- Smoke Puff 3 -->
+            <circle class="smoke-puff puff3" cx="150" cy="40" r="5" fill="rgba(200, 200, 200, 0.6)" />
+            <!-- Additional Smoke Puffs -->
+            <circle class="smoke-puff puff4" cx="138" cy="40" r="4" fill="rgba(200, 200, 200, 0.5)" />
+            <circle class="smoke-puff puff5" cx="152" cy="40" r="6" fill="rgba(200, 200, 200, 0.7)" />
+          </g>
+          <!-- Door Knob -->
+          <circle id="knob" cx="105" cy="155" r="2" fill="#212427" />
+        </svg>
+
+      </div>
+      <div class="speech-bubbles">
+        <div class="bubble bubble-one" data-text="Welcome to The Production House. 
+Nothing here is as it seems.
+Click, explore, and see what’s hiding beneath the surface.">
+        </div>
+        <div class="bubble bubble-two" data-text="Did you know?
+The most exciting discoveries are the ones you didn’t expect.
+Go ahead, see where the next click takes you."></div>
+        <div class="bubble bubble-three" data-text="Every corner of this house has a story to tell.
+What will you uncover next?
+The journey has only begun."></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
+
+</html>

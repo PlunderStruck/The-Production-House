@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=RocknRoll+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Luckiest+Guy&family=RocknRoll+One&display=swap');
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
+  text-rendering: optimizeLegibility; 
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+.body-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+#typing-container {
+  margin-top: 60px;
+  font-family: "Amaranth", sans-serif;
+  font-weight: 700;
+  font-size: 4em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid #212427;
+  color: #212427;
+}
+
+.interactions {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 65%;
+  height: auto;
+  overflow: visible;
+}
+
+.house {
+  width: 500px;
+  height: 500px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+#door {
+  pointer-events: all;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: resolution 2s infinite;
+}
+
+@keyframes resolution {  /* This animation keeps the svg resolution sharp when the zoom animation is activated. I know... I know..*/
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: none;
+  }
+}
+
+/* Glowing animation */
+#door:hover,
+#door.clicked { /* Keep hover styles when clicked */
+  filter: drop-shadow(0px 0px 10px rgba(255, 217, 125, 0.8));
+  fill: rgba(255, 217, 125, 0.8);
+  stroke: rgba(255, 217, 125, 0.8);
+  stroke-width: 1;
+}
+
+#door:hover ~ #knob,
+#door.clicked ~ #knob { /* Same for knob */
+  filter: drop-shadow(0px 0px 5px rgba(255, 217, 125, 0.8));
+  fill: rgba(255, 217, 125, 1);
+  stroke: rgba(255, 217, 125, 0.8);
+}
+
+#house-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 1.5s ease-in-out;
+  transform-origin: center center;
+}
+
+/* Smoke Animation with Color Transition */
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+    fill: rgba(200, 200, 200, 0.6); /* Initial grey color */
+  }
+  80% {
+    fill: rgba(255, 255, 255, 0); /* Transition to white */
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-100px) scale(2);
+    opacity: 0;
+    fill: rgba(255, 255, 255, 0); /* Fully transparent white */
+  }
+}
+
+.smoke-puff {
+  animation: rise 6s ease-out infinite;
+  filter: blur(2px);
+}
+
+/* Staggered Animation Delays and Durations for Each Puff */
+.puff1 {
+  animation-delay: 0s;
+  animation-duration: 6s;
+}
+.puff2 {
+  animation-delay: 1s;
+  animation-duration: 5.5s;
+}
+.puff3 {
+  animation-delay: 2s;
+  animation-duration: 6.5s;
+}
+.puff4 {
+  animation-delay: 0.5s;
+  animation-duration: 5s;
+}
+.puff5 {
+  animation-delay: 1.5s;
+  animation-duration: 7s;
+}
+
+.speech-bubbles {
+  display: grid;
+  height: 60%;
+  width: 20%;
+  margin-right: 80px;
+}
+
+.bubble-three {
+  justify-self: center;
+  align-self: flex-end;
+}
+
+.bubble-two {
+  align-self: center;
+  justify-self: flex-end;
+}
+
+.bubble-one {
+  justify-self: center;
+}
+
+.bubble {
+  height: 60px;
+  width: 60px;
+  background-color: #212427;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f0f0f0;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  transform: scale(1);
+  transition: all 0.4s ease, border-radius 0.4s ease-in-out, transform 0.3s ease, box-shadow 0.4s ease-in-out;
+  margin: 5px;
+}
+
+.bubble:not(.expanded):hover {
+  transform: scale(1.2);
+}
+
+.bubble.expanded {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  color: #212427;
+  border: 2px solid #212427;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+#text {
+  display: none;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  text-align: left;
+  line-height: 2;
+  white-space: pre-wrap;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.bubble.expanded #text {
+  opacity: 1;
+}
+
+#audio-control {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#audio-control:hover {
+  opacity: 0.8;
+}
